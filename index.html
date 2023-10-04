@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FullPage</title>
+    <style>
+        *{margin:0; padding:0; box-sizing:border-box}
+        ul{list-style:none}
+        .title{font-size:24px; margin-bottom:30px}
+        .txt{line-height:24px}
+        .sct1{background:goldenrod}
+        .sct2{background:firebrick}
+        .sct3{background:salmon}
+        .sct4{background:cadetblue}
+        .sct5{background:aquamarine}
+        .sct6{background:rebeccapurple}
+
+        .menu{
+            position:fixed;
+            top:50%;
+            right:30px;
+            transform:translateY(-50%);
+            z-index:200
+        }
+        .menu li{
+            padding:5px 0
+        }
+        .menu button{
+            width:10px;
+            height:10px;
+            border-radius:50%;
+            background:#d6d6d6;
+            border:none;
+            cursor:pointer
+        }
+        .menu li.active button{
+            background:#782fff
+        }
+
+        /* COMMON */
+        .fullpage{
+            position:relative;
+            height:100vh;
+            overflow:hidden
+        }
+        .fullpage .sector{
+            display:flex;
+            flex-direction:column;
+            justify-content:center;
+            width:100%;
+            height:100vh;
+            text-align:center
+        }
+        .sector p{
+            opacity:0;
+            transform:translateY(80px);
+            transition:all 0.8s ease 0.4s
+        }
+        .sector p:nth-child(n+2){
+            transition-delay:0.6s
+        }
+        .active p{
+            opacity:1;
+            transform:translate(0)
+        }
+    </style>
+</head>
+<body>
+
+<div id="wrap">
+
+    <ul class="menu">
+        <li><button type="button"></button></li>
+        <li><button type="button"></button></li>
+        <li><button type="button"></button></li>
+        <li><button type="button"></button></li>
+        <li><button type="button"></button></li>
+        <li><button type="button"></button></li>
+    </ul>
+
+    <div class="fullpage">
+        <div class="scroll-area">
+            <section class="sector sct1" data-anchor="sct1">
+                <p class="title">TITLE01</p>
+                <p class="txt">ABCDEFG</p>
+                <p class="txt">가나다라바마사</p>
+                <p class="txt">1234567</p>
+            </section>
+            <section class="sector sct2" data-anchor="sct2">
+                <p class="title">TITLE01</p>
+                <p class="txt">ABCDEFG</p>
+                <p class="txt">가나다라바마사</p>
+                <p class="txt">1234567</p>
+            </section>
+            <section class="sector sct3" data-anchor="sct3">
+                <p class="title">TITLE01</p>
+                <p class="txt">ABCDEFG</p>
+                <p class="txt">가나다라바마사</p>
+                <p class="txt">1234567</p>
+            </section>
+            <section class="sector sct4" data-anchor="sct4">
+                <p class="title">TITLE01</p>
+                <p class="txt">ABCDEFG</p>
+                <p class="txt">가나다라바마사</p>
+                <p class="txt">1234567</p>
+            </section>
+            <section class="sector sct5" data-anchor="sct5">
+                <p class="title">TITLE01</p>
+                <p class="txt">ABCDEFG</p>
+                <p class="txt">가나다라바마사</p>
+                <p class="txt">1234567</p>
+            </section>
+            <section class="sector sct6" data-anchor="sct6">
+                <p class="title">TITLE01</p>
+                <p class="txt">ABCDEFG</p>
+                <p class="txt">가나다라바마사</p>
+                <p class="txt">1234567</p>
+            </section>
+        </div>
+    </div>
+
+</div>
+
+<script src="./fullpage.min.js"></script>
+<script>
+
+    const fullpage = new Fullpage({
+        minHeight: 1
+    });
+
+    fullpage.on('scroll', data => {
+        console.log(data)
+    })
+
+</script>
+
+</body>
+</html>
