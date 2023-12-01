@@ -162,6 +162,7 @@
         obj.classList.add('active');
         btn.classList.add('active');
         siblings(btn).forEach(el => el.classList.remove('active'));
+        siblings(obj).forEach(el => el.classList.remove('active'));
     }
     
     function siblings( el ){
